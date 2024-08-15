@@ -11,7 +11,9 @@ import {
   Toolbar,
   Grid,
 } from '@mui/material'
+import Link from 'next/link'
 import Head from 'next/head'
+import React from 'react'
 
 export default function Home() {
   const handleSubmit = async () => {
@@ -152,6 +154,34 @@ export default function Home() {
         <Typography variant="h4" component="h2" gutterBottom>Pricing</Typography>
         <Grid container spacing={4} justifyContent="center">
           {/* Pricing plans */}
+          <Grid item xs={12} md={4}>
+            <Box sx={{p: 3, border: '1px solid', borderColor: 'grey.300', borderRadius: 2,}}>
+              <Typography variant="h6">Easy Text Input</Typography>
+              <Typography>
+                {''}
+                Simply input your text and we'll generate flashcards for you.
+              </Typography>
+            </Box>
+          </Grid>
+          <Grid item xs={12} md={4}>
+            <Box sx={{p: 3, border: '1px solid', borderColor: 'grey.300', borderRadius: 2,}}>
+              <Typography variant="h6">Easy Text Input</Typography>
+              <Typography>
+                {''}
+                Simply input your text and we'll generate flashcards for you.
+              </Typography>
+            </Box>
+          </Grid>
+          <Grid item xs={12} md={4}>
+            <Box sx={{p: 3, border: '1px solid', borderColor: 'grey.300', borderRadius: 2,}}>
+              <Typography variant="h6">Easy Text Input</Typography>
+              <Typography>
+                {''}
+                Simply input your text and we'll generate flashcards for you.
+              </Typography>
+            </Box>
+          </Grid>
+ 
         </Grid>
       </Box>
     </Container>
