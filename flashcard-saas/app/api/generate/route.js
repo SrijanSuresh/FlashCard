@@ -14,7 +14,8 @@ const model = genAI.getGenerativeModel({
 
 export async function POST(req) {
   try {
-    const { prompt } = await req.json();
+    // Read the text directly from the request body
+    const prompt = await req.text();
     if (!prompt) {
       return new Response(JSON.stringify({ error: "Prompt is required" }), { status: 400 });
     }
@@ -60,10 +61,8 @@ export async function POST(req) {
 
     const rawText = await result.response.text();
 
-    // Log the raw response to see what is returned
     console.log('Raw API Response:', rawText);
 
-    // Attempt to extract JSON from the raw response
     const jsonMatch = rawText.match(/\{[\s\S]*\}/);
     if (!jsonMatch) {
       console.error('No JSON found in the response:', rawText);
@@ -78,7 +77,6 @@ export async function POST(req) {
       return NextResponse.json({ error: 'Failed to parse JSON response' }, { status: 500 });
     }
 
-    // Extract and return the flashcards array
     if (jsonResponse.flashcards) {
       return NextResponse.json({ flashcards: jsonResponse.flashcards }, { status: 200 });
     } else {
