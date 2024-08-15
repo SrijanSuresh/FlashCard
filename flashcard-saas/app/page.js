@@ -146,16 +146,25 @@ export default function Home() {
       <Box sx={{my: 6}}>
         <Typography variant="h4" component="h2" gutterBottom>Features</Typography>
         <Grid container spacing={4}>
-          {/* Feature items */}
+        <Grid item xs={12} md={3} my={2}>
+            <Box sx={{p: 7, border: '1px solid', borderColor: 'grey.300', borderRadius: 2,}}>
+              <Typography variant="h5" gutterBottom>Feature 1</Typography>
+              <Typography variant="h6" gutterBottom>Example Feature</Typography>
+              <Typography gutterBottom>
+                {''}
+                description here
+              </Typography>
+            </Box>
+          </Grid>
         </Grid>
         
       </Box>
-      <Box sx={{my: 6, textAlign: 'center'}}>
+      <Box sx={{my: 5, textAlign: 'center'}}>
         <Typography variant="h4" component="h2" gutterBottom>Pricing</Typography>
         <Grid container spacing={4} justifyContent="center">
           {/* Pricing plans */}
-          <Grid item xs={12} md={4}>
-            <Box sx={{p: 3, border: '1px solid', borderColor: 'grey.300', borderRadius: 2,}}>
+          <Grid item xs={12} md={6} my={5}>
+            <Box sx={{p: 7, border: '1px solid', borderColor: 'grey.300', borderRadius: 2,}}>
               <Typography variant="h5" gutterBottom>Basic</Typography>
               <Typography variant="h6" gutterBottom>5$ / Month</Typography>
               <Typography gutterBottom>
@@ -167,8 +176,8 @@ export default function Home() {
               </Button>
             </Box>
           </Grid>
-          <Grid item xs={12} md={4}>
-            <Box sx={{p: 3, border: '1px solid', borderColor: 'grey.300', borderRadius: 2,}}>
+          <Grid item xs={12} md={6} my={5}>
+            <Box sx={{p: 7, border: '1px solid', borderColor: 'grey.300', borderRadius: 2,}}>
               <Typography variant="h5" gutterBottom>Pro</Typography>
               <Typography variant="h6" gutterBottom>10$ / Month</Typography>
               <Typography gutterBottom>
