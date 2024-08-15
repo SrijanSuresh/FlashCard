@@ -156,32 +156,30 @@ export default function Home() {
           {/* Pricing plans */}
           <Grid item xs={12} md={4}>
             <Box sx={{p: 3, border: '1px solid', borderColor: 'grey.300', borderRadius: 2,}}>
-              <Typography variant="h6">Easy Text Input</Typography>
-              <Typography>
+              <Typography variant="h5" gutterBottom>Basic</Typography>
+              <Typography variant="h6" gutterBottom>5$ / Month</Typography>
+              <Typography gutterBottom>
                 {''}
-                Simply input your text and we'll generate flashcards for you.
+                Access to basic Flashcard Features and limited storage.
               </Typography>
+              <Button variant = "contained" color="primary" gutterBottom sx={{mt:2}}>
+                Subscribe
+              </Button>
             </Box>
           </Grid>
           <Grid item xs={12} md={4}>
             <Box sx={{p: 3, border: '1px solid', borderColor: 'grey.300', borderRadius: 2,}}>
-              <Typography variant="h6">Easy Text Input</Typography>
-              <Typography>
+              <Typography variant="h5" gutterBottom>Pro</Typography>
+              <Typography variant="h6" gutterBottom>10$ / Month</Typography>
+              <Typography gutterBottom>
                 {''}
-                Simply input your text and we'll generate flashcards for you.
+                Access to all Flashcard Features and unlimited storage.
               </Typography>
+              <Button variant = "contained" color="primary" gutterBottom sx={{mt:2}}>
+                Subscribe
+              </Button>
             </Box>
           </Grid>
-          <Grid item xs={12} md={4}>
-            <Box sx={{p: 3, border: '1px solid', borderColor: 'grey.300', borderRadius: 2,}}>
-              <Typography variant="h6">Easy Text Input</Typography>
-              <Typography>
-                {''}
-                Simply input your text and we'll generate flashcards for you.
-              </Typography>
-            </Box>
-          </Grid>
- 
         </Grid>
       </Box>
     </Container>
