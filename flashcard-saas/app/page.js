@@ -48,10 +48,17 @@ export default function Home() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  const router = useRouter();
+  const goNext = () => {
+    router.push('/generate');
+  }
+
   const parallaxStyles = {
     transform: `translateY(${scrollY * 0.5}px)`,
   };
-
+  const goAbout = () => {
+    router.push('/about');
+  }
   // Define the keyframes for the pulse animation
   const pulseAnimation = keyframes`
     0% { opacity: 0.6; transform: scale(1); }
@@ -240,6 +247,7 @@ export default function Home() {
             transition: 'all 0.3s ease',
             animation: 'fadeIn 2s',
           }}
+          onClick={goAbout}
         >
           Learn More
         </Button>
@@ -458,6 +466,7 @@ export default function Home() {
                   },
                   transition: 'all 0.3s ease',
                 }}
+                onClick={goNext}
               >
                 Continue
               </Button>
