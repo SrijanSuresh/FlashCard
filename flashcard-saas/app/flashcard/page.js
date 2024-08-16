@@ -14,10 +14,11 @@ import {
     Box,
     IconButton,
     LinearProgress,
-    Button, 
+    Button,
 } from '@mui/material'
 import { ArrowBack, ArrowForward } from '@mui/icons-material'
 import { useRouter } from "next/navigation"
+
 export default function Flashcard() {
     const { isLoaded, isSignedIn, user } = useUser()
     const [flashcards, setFlashcards] = useState([])
@@ -67,20 +68,23 @@ export default function Flashcard() {
     const progress = (currentCardIndex + 1) / flashcards.length * 100
 
     return (
-        <Container maxWidth={false}>
-          <Button
-            sx={{
-              width: '200px',
-              backgroundColor: 'black',
-              color: 'white',
-              '&:hover': {
-                backgroundColor: 'red',
-              },
-            }}
-            onClick={handleBack} 
-          >
-            Back
-          </Button>
+        <Container
+            maxWidth={false}
+            sx={{ backgroundColor: 'black', color: 'white', minHeight: '100vh', p: 4 }}
+        >
+            <Button
+                sx={{
+                    width: '200px',
+                    backgroundColor: '#007aff', // iPhone blue color
+                    color: 'white',
+                    '&:hover': {
+                        backgroundColor: '#0051a2', // Darker blue for hover effect
+                    },
+                }}
+                onClick={handleBack}
+            >
+                Back
+            </Button>
 
             <Typography variant="h6" align="center" sx={{ mt: 4 }}>
                 Flashcard {currentCardIndex + 1} of {flashcards.length}
@@ -88,7 +92,7 @@ export default function Flashcard() {
             <LinearProgress variant="determinate" value={progress} sx={{ mb: 2 }} />
             <Grid container justifyContent="center" alignItems="center">
                 <Grid item xs={1}>
-                    <IconButton onClick={handlePreviousCard} disabled={flashcards.length === 0}>
+                    <IconButton onClick={handlePreviousCard} disabled={flashcards.length === 0} sx={{ color: 'white' }}>
                         <ArrowBack />
                     </IconButton>
                 </Grid>
@@ -140,7 +144,7 @@ export default function Flashcard() {
                     </Card>
                 </Grid>
                 <Grid item xs={1}>
-                    <IconButton onClick={handleNextCard} disabled={flashcards.length === 0}>
+                    <IconButton onClick={handleNextCard} disabled={flashcards.length === 0} sx={{ color: 'white' }}>
                         <ArrowForward />
                     </IconButton>
                 </Grid>
