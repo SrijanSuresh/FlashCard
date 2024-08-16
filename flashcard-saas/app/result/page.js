@@ -1,8 +1,9 @@
 'use client'
-import { useEffect, useState } from "react"
-import { useRouter } from "next/router"
-import getStripe from "@/utils/get_stripe"
-import { useSearchParams } from "next/router"
+
+import { useEffect, useState } from "react";
+import { useRouter } from "next/navigation";
+import { useSearchParams } from "next/navigation";
+import { Container, CircularProgress, Typography, Box } from "@mui/material";
 
 const ResultPage = () => {
     const router = useRouter()
@@ -11,6 +12,7 @@ const ResultPage = () => {
     const [loading, setLoading] = useState(true)
     const [session, setSession] = useState(null)
     const [error, setError] = useState(null)
+  
   
     useEffect(() => {
         const fetchCheckoutSession = async () => {
@@ -30,9 +32,9 @@ const ResultPage = () => {
           }
         }
         fetchCheckoutSession()
-    }, [session_id])
+      }, [session_id])
 
-    if (loading) {
+      if (loading) {
         return (
           <Container maxWidth="sm" sx={{textAlign: 'center', mt: 4}}>
             <CircularProgress />
@@ -41,8 +43,9 @@ const ResultPage = () => {
             </Typography>
           </Container>
         )
-    }
-    if (error) {
+      }
+
+      if (error) {
         return (
           <Container maxWidth="sm" sx={{textAlign: 'center', mt: 4}}>
             <Typography variant="h6" color="error">
@@ -50,8 +53,9 @@ const ResultPage = () => {
             </Typography>
           </Container>
         )
-    }
-    return (
+      }
+
+      return (
         <Container maxWidth="sm" sx={{textAlign: 'center', mt: 4}}>
           {session.payment_status === 'paid' ? (
             <>
@@ -76,7 +80,6 @@ const ResultPage = () => {
           )}
         </Container>
       )
-        
-}
+};
 
-export default ResultPage
+export default ResultPage;
