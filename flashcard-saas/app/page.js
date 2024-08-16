@@ -15,10 +15,31 @@ import Head from 'next/head';
 import React, { useEffect, useState } from 'react';
 import { useRouter, useSearchParams } from 'next/navigation';
 import { keyframes } from '@emotion/react';
+import getStripe from '@/utils/get_stripe';
 
 export default function Home() {
   const [scrollY, setScrollY] = useState(0);
+  const handleSubmit = async () => {
+    const checkoutSession = await fetch('/api/checkout_session', {
+      method: 'POST',
+      headers: { origin: 'http://localhost:3000' },
+    });
+    const checkoutSessionJson = await checkoutSession.json();
 
+    if (checkoutSession.statusCode === 500) {
+      console.error(checkoutSession.message);
+      return;
+    }
+  
+    const stripe = await getStripe();
+    const { error } = await stripe.redirectToCheckout({
+      sessionId: checkoutSessionJson.id,
+    });
+  
+    if (error) {
+      console.warn(error.message);
+    }
+  }
   useEffect(() => {
     const handleScroll = () => {
       setScrollY(window.scrollY);
@@ -413,6 +434,7 @@ export default function Home() {
                   },
                   transition: 'all 0.3s ease',
                 }}
+                onClick={handleSubmit}
               >
                 Subscribe
               </Button>

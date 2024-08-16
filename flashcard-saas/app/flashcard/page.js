@@ -47,7 +47,7 @@ export default function Flashcard() {
     }
 
     if (!isLoaded || !isSignedIn) {
-        return <> Not exist </>
+        return <>Please wait until loading</>
     }
     
     console.log('Flashcards Length:', flashcards.length) // Debugging line
