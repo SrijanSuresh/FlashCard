@@ -11,14 +11,17 @@ import {
     Card,
     CardActionArea,
     Grid, 
-    CardContent
+    CardContent,
+    Button
   } from '@mui/material'
 
   export default function Flashcards() {
     const { isLoaded, isSignedIn, user } = useUser();
     const [flashcards, setFlashcards] = useState([]);
     const router = useRouter();
-  
+    const handleBack = () => {
+      router.push('/generate') // Navigate to /flashcards
+    }
     useEffect(() => {
       async function getFlashcards() {
         if (!user) return;
@@ -43,7 +46,20 @@ import {
     };
   
     return (
-        <Container maxWidth="lg">
+        <Container maxWidth={false}>
+                    <Button
+            sx={{
+              width: '200px',
+              backgroundColor: 'black',
+              color: 'white',
+              '&:hover': {
+                backgroundColor: 'red',
+              },
+            }}
+            onClick={handleBack} 
+          >
+            Back
+          </Button>
             <Grid container spacing={3} sx={{mt:4}}>
                 {flashcards.map((flashcard, index) => (
                     <Grid item xs={12} sm={6} md={4} key={index}>

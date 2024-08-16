@@ -72,7 +72,8 @@ export default function Home() {
         width: '100vw', 
         overflow: 'hidden', 
         position: 'relative', 
-        backgroundImage: 'url(/ohyea.png)', // Replace with your image path
+        // backgroundImage: 'url(/ohyea.png)', // Replace with your image path
+        backgroundColor: 'black',
         backgroundSize: 'cover',
         backgroundPosition: 'center',
         backgroundRepeat: 'no-repeat',
@@ -86,13 +87,14 @@ export default function Home() {
 
       {/* 3D Navbar */}
       <AppBar
-        position="static"
-        sx={{
-          boxShadow: '0px 8px 16px rgba(0, 0, 0, 0.4)',
-          animation: `${colorAnimation} 5s infinite ease-in-out`,
-          transform: 'translateZ(0)',
-        }}
-      >
+  position="static"
+  sx={{
+    background: 'linear-gradient(120deg, #3f51b5 9%, #9c27b0 100%)', // Blue and Purple Gradient
+    boxShadow: '0px 8px 16px rgba(0, 0, 0, 0.4)',
+    animation: `${colorAnimation} 5s infinite ease-in-out`,
+    transform: 'translateZ(0)',
+  }}
+>
         <Toolbar>
           <Typography
             variant="h4"
@@ -104,7 +106,7 @@ export default function Home() {
               textShadow: '2px 2px 4px rgba(0, 0, 0, 0.6)',
             }}
           >
-            Flashcard SaaS
+            AI Flashcard
           </Typography>
           <SignedOut>
             <Button
@@ -194,29 +196,30 @@ export default function Home() {
           The easiest way to create flashcards from your text.
         </Typography>
         <Button
-          variant="contained"
-          sx={{
-            mt: 2,
-            mr: 2,
-            py: 1.5,
-            px: 4,
-            borderRadius: 20,
-            backgroundColor: '#6a1b9a',
-            color: '#ffffff',
-            boxShadow: '0px 6px 12px rgba(0, 0, 0, 0.3)',
-            fontFamily: 'Poppins, sans-serif',
-            '&:hover': {
-              backgroundColor: '#c2185b',
-              boxShadow: '0px 8px 16px rgba(0, 0, 0, 0.4)',
-              transform: 'translateY(-3px)',
-            },
-            transition: 'all 0.3s ease',
-            animation: 'fadeIn 2s',
-          }}
-          href="/generate"
-        >
-          Get Started
-        </Button>
+        variant="contained"
+        sx={{
+          mt: 2,
+          mr: 2,
+          py: 1.5,
+          px: 4,
+          borderRadius: 20,
+          backgroundColor: '#007aff', // iPhone-like blue
+          color: '#ffffff',
+          boxShadow: '0px 6px 12px rgba(0, 0, 0, 0.3)',
+          fontFamily: 'Poppins, sans-serif',
+          '&:hover': {
+            backgroundColor: '#ffffff', // White when hovered
+            color: '#007aff', // Blue text when hovered
+            boxShadow: '0px 8px 16px rgba(0, 0, 0, 0.4)',
+            transform: 'translateY(-3px)',
+          },
+          transition: 'all 0.3s ease',
+          animation: 'fadeIn 2s',
+        }}
+        href="/generate"
+      >
+        Get Started
+      </Button>
         <Button
           variant="outlined"
           sx={{
@@ -245,7 +248,7 @@ export default function Home() {
       {/* Remove Pulsing Circles */}
 
       {/* 3D Features Section */}
-      <Box sx={{ my: 6 }}>
+      <Box sx={{ my: 5 }}>
         <Typography
           variant="h4"
           component="h2"
@@ -262,47 +265,127 @@ export default function Home() {
           Features
         </Typography>
         <Grid container spacing={4}>
-          <Grid item xs={12} md={4}>
-            <Box
-              sx={{
-                p: 4,
-                border: '2px solid',
-                borderColor: '#e91e63',
-                borderRadius: 3,
-                boxShadow: '0px 8px 16px rgba(0, 0, 0, 0.4)',
-                textAlign: 'center',
-                background: 'linear-gradient(120deg, #ba68c8 0%, #e57373 100%)',
-                color: '#ffffff',
-                transform: 'translateZ(0)',
-                transition: 'transform 0.3s ease',
-                '&:hover': {
-                  transform: 'translateY(-5px)',
-                  boxShadow: '0px 12px 24px rgba(0, 0, 0, 0.5)',
-                },
-                fontFamily: 'Poppins, sans-serif',
-              }}
-            >
-              <Typography
-                variant="h5"
-                gutterBottom
-                sx={{ fontWeight: 'bold', fontFamily: 'Poppins, sans-serif' }}
-              >
-                Feature 1
-              </Typography>
-              <Typography
-                variant="h6"
-                gutterBottom
-                sx={{ fontFamily: 'Poppins, sans-serif' }}
-              >
-                Example Feature
-              </Typography>
-              <Typography sx={{ fontFamily: 'Poppins, sans-serif' }}>
-                Description here
-              </Typography>
-            </Box>
-          </Grid>
-          {/* Add more feature cards as needed */}
-        </Grid>
+  <Grid item xs={12} md={4}>
+    <Box
+      sx={{
+        p: 4,
+        border: '2px solid',
+        borderColor: '#e91e63',
+        borderRadius: 3,
+        boxShadow: '0px 8px 16px rgba(0, 0, 0, 0.4)',
+        textAlign: 'center',
+        background: 'linear-gradient(120deg, #ba68c8 0%, #e57373 100%)',
+        color: '#ffffff',
+        transform: 'translateZ(0)',
+        transition: 'transform 0.3s ease',
+        '&:hover': {
+          transform: 'translateY(-5px)',
+          boxShadow: '0px 12px 24px rgba(0, 0, 0, 0.5)',
+        },
+        fontFamily: 'Poppins, sans-serif',
+      }}
+    >
+      <Typography
+        variant="h5"
+        gutterBottom
+        sx={{ fontWeight: 'bold', fontFamily: 'Poppins, sans-serif' }}
+      >
+        AI-Powered Flashcard Generation
+      </Typography>
+      <Typography
+        variant="h6"
+        gutterBottom
+        sx={{ fontFamily: 'Poppins, sans-serif' }}
+      >
+        Automated Flashcard Creation
+      </Typography>
+      <Typography sx={{ fontFamily: 'Poppins, sans-serif' }}>
+        Generate flashcards instantly from any text or topic using advanced AI models.
+      </Typography>
+    </Box>
+  </Grid>
+
+  <Grid item xs={12} md={4}>
+    <Box
+      sx={{
+        p: 4,
+        border: '2px solid',
+        borderColor: '#e91e63',
+        borderRadius: 3,
+        boxShadow: '0px 8px 16px rgba(0, 0, 0, 0.4)',
+        textAlign: 'center',
+        background: 'linear-gradient(120deg, #ba68c8 0%, #e57373 100%)',
+        color: '#ffffff',
+        transform: 'translateZ(0)',
+        transition: 'transform 0.3s ease',
+        '&:hover': {
+          transform: 'translateY(-5px)',
+          boxShadow: '0px 12px 24px rgba(0, 0, 0, 0.5)',
+        },
+        fontFamily: 'Poppins, sans-serif',
+      }}
+    >
+      <Typography
+        variant="h5"
+        gutterBottom
+        sx={{ fontWeight: 'bold', fontFamily: 'Poppins, sans-serif' }}
+      >
+        Interactive Learning Modes
+      </Typography>
+      <Typography
+        variant="h6"
+        gutterBottom
+        sx={{ fontFamily: 'Poppins, sans-serif' }}
+      >
+        Quiz Mode & Spaced Repetition
+      </Typography>
+      <Typography sx={{ fontFamily: 'Poppins, sans-serif' }}>
+        Engage with your flashcards using interactive learning modes like Quiz Mode and Spaced Repetition.
+      </Typography>
+    </Box>
+  </Grid>
+
+  <Grid item xs={10} md={4}>
+    <Box
+      sx={{
+        p: 4,
+        border: '2px solid',
+        borderColor: '#e91e63',
+        borderRadius: 3,
+        boxShadow: '0px 8px 16px rgba(0, 0, 0, 0.4)',
+        textAlign: 'center',
+        background: 'linear-gradient(120deg, #ba68c8 0%, #e57373 100%)',
+        color: '#ffffff',
+        transform: 'translateZ(0)',
+        transition: 'transform 0.3s ease',
+        '&:hover': {
+          transform: 'translateY(-5px)',
+          boxShadow: '0px 12px 24px rgba(0, 0, 0, 0.5)',
+        },
+        fontFamily: 'Poppins, sans-serif',
+      }}
+    >
+      <Typography
+        variant="h5"
+        gutterBottom
+        sx={{ fontWeight: 'bold', fontFamily: 'Poppins, sans-serif' }}
+      >
+        Progress Tracking & Analytics
+      </Typography>
+      <Typography
+        variant="h6"
+        gutterBottom
+        sx={{ fontFamily: 'Poppins, sans-serif' }}
+      >
+        Performance Insights
+      </Typography>
+      <Typography sx={{ fontFamily: 'Poppins, sans-serif' }}>
+        Track your learning progress with detailed analytics and receive study recommendations.
+      </Typography>
+    </Box>
+  </Grid>
+</Grid>
+
       </Box>
 
       {/* 3D Pricing Section */}
@@ -353,7 +436,7 @@ export default function Home() {
                 gutterBottom
                 sx={{ fontFamily: 'Poppins, sans-serif' }}
               >
-                $5 / Month
+                Free
               </Typography>
               <Typography gutterBottom sx={{ fontFamily: 'Poppins, sans-serif' }}>
                 Access to basic Flashcard Features and limited storage.
@@ -376,7 +459,7 @@ export default function Home() {
                   transition: 'all 0.3s ease',
                 }}
               >
-                Subscribe
+                Continue
               </Button>
             </Box>
           </Grid>
@@ -412,7 +495,7 @@ export default function Home() {
                 gutterBottom
                 sx={{ fontFamily: 'Poppins, sans-serif' }}
               >
-                $10 / Month
+                $3 / Month
               </Typography>
               <Typography gutterBottom sx={{ fontFamily: 'Poppins, sans-serif' }}>
                 Access to all Flashcard Features and unlimited storage.
