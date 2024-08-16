@@ -15,12 +15,12 @@
     "@google/generative-ai": "^0.17.0",
     "@mui/material": "^5.16.7",
     "@stripe/stripe-js": "^4.3.0",
-    "firebase": "^10.12.5",
+    "firebase": "^10.13.0",
     "next": "14.2.5",
-    "openai": "^4.55.7",
+    "openai": "^4.56.0",
     "react": "^18",
     "react-dom": "^18",
-    "stripe": "^16.7.0"
+    "stripe": "^16.8.0"
   },
   "devDependencies": {
     "eslint": "^8",
